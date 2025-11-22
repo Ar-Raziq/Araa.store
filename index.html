@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mari Membaca di @Araa.Store</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
+        color: #fff;
+    }
+
+    /* NAVBAR */
+    nav {
+        background: linear-gradient(to right, #2b2b2b, #0d0d0d);
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        border-bottom: 3px solid gold;
+    }
+
+    nav a {
+        color: gold;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    nav a:hover {
+        background: gold;
+        color: black;
+        box-shadow: 0 0 10px gold;
+    }
+
+    /* HALAMAN */
+    section {
+        padding: 40px;
+        display: none;
+    }
+
+    section.active {
+        display: block;
+        animation: fadeIn 0.7s;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    /* PRODUK GRID */
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    /* KARTU PRODUK */
+    .product {
+        background: #111;
+        border: 2px solid gold;
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .product:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px gold;
+    }
+
+    .product img {
+        width: 100%;
+        border-radius: 10px;
+        border: 2px solid gold;
+    }
+
+    .buy-btn {
+        margin-top: 10px;
+        padding: 10px 15px;
+        background: gold;
+        color: black;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+        background: #ffdd55;
+        box-shadow: 0 0 10px gold;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a onclick="showPage('home')">Selamat Datang</a>
+    <a onclick="showPage('produk')">Produk</a>
+    <a onclick="showPage('bye')">Sampai Jumpa</a>
+</nav>
+
+<!-- HALAMAN: SELAMAT DATANG -->
+<section id="home" class="active">
+    <h1 style="color: gold; font-weight: bold;">Selamat Datang di Araa Book 📚 😉 </h1>
+    <p style="font-weight: bold;">Haaii 👋 Selamat datang di Araa Book – tempat buku menjadi jendela dunia dan pengetahuan menjadi sahabat perjalanan hidupmu. Silahkan tekan <b>"Produk"</b> dan pilihlah buku yang cocok dan menarik buat kamu...</p>
+</section>
+
+<!-- HALAMAN: PRODUK -->
+<section id="produk">
+
+    <h1 style="color: gold; font-weight: bold;">Produk Araa 😊</h1>
+
+    <div class="product-container">
+
+        <!-- PRODUK 1 -->
+        <div class="product">
+            <img src="https://i.ibb.co/xFX9wVn/sample1.jpg">
+            <h3>Produk 1</h3>
+            <p>Harga: Rp 10.000</p>
+            <button class="buy-btn" onclick="beli('Produk 1')">Beli via WhatsApp</button>
+        </div>
+
+        <!-- PRODUK 2 -->
+        <div class="product">
+            <img src="https://i.ibb.co/6b6kJQZ/sample2.jpg">
+            <h3>Produk 2</h3>
+            <p>Harga: Rp 10.000</p>
+            <button class="buy-btn" onclick="beli('Produk 2')">Beli via WhatsApp</button>
+        </div>
+
+        <!-- PRODUK 3 -->
+        <div class="product">
+            <img src="https://i.ibb.co/zP1p6jp/sample3.jpg">
+            <h3>Produk 3</h3>
+            <p>Harga: Rp 10.000</p>
+            <button class="buy-btn" onclick="beli('Produk 3')">Beli via WhatsApp</button>
+        </div>
+
+        <!-- PRODUK 4 -->
+        <div class="product">
+            <img src="https://i.ibb.co/xFX9wVn/sample1.jpg">
+            <h3>Produk 4</h3>
+            <p>Harga: Rp 10.000</p>
+            <button class="buy-btn" onclick="beli('Produk 4')">Beli via WhatsApp</button>
+        </div>
+
+        <!-- PRODUK 5 -->
+        <div class="product">
+            <img src="https://i.ibb.co/6b6kJQZ/sample2.jpg">
+            <h3>Produk 5</h3>
+            <p>Harga: Rp 10.000</p>
+            <button class="buy-btn" onclick="beli('Produk 5')">Beli via WhatsApp</button>
+        </div>
+
+        <!-- PRODUK 6 -->
+        <div class="product">
+            <img src="https://i.ibb.co/zP1p6jp/sample3.jpg">
+            <h3>Produk 6</h3>
+            <p>Harga: Rp 10.000</p>
+            <button class="buy-btn" onclick="beli('Produk 6')">Beli via WhatsApp</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- HALAMAN: SAMPAI JUMPA -->
+<section id="bye">
+    <h1 style="color: gold; font-weight: bold;">Sampai Jumpa!</h1>
+    <p>Terima kasih sudah berkunjung.</p>
+</section>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+        document.getElementById(pageId).classList.add("active");
+    }
+
+    function beli(namaProduk) {
+        const no_wa = "6283193904986"; // nomor WA format internasional
+        const pesan = `Halo, saya ingin membeli ${namaProduk}`;
+        // menggunakan window.location.href agar WA bisa dibuka di HP / browser
+        window.location.href = `https://wa.me/${no_wa}?text=${encodeURIComponent(pesan)}`;
+    }
+</script>
+
+</body>
+</html>
